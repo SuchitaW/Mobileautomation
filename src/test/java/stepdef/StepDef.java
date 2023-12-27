@@ -14,6 +14,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -300,7 +301,7 @@ public void user_click_on_send_otp() throws Exception {
 public void user_enters_click_on_verify_otp_register(String otp1) throws Exception {
 	WebElement Sendotp = driver.findElement(By.xpath("//div[@id='registration_verifyotp_form_mobile']//input[@name='new_otp']"));
 	Sendotp.sendKeys(otp1);
-    Thread.sleep(4000);
+    Thread.sleep(5000);
 	
 	WebElement verifyotp1 = driver.findElement(By.xpath("//div[@id='registration_verifyotp_form_mobile']//button[@name='send']"));
 	
@@ -1081,6 +1082,315 @@ public void user_click_on_start_shopping() throws Exception {
 	
 	homePageObject.capturePassScreenshot(scn);
 }
+
+//========================================================plp=============================
+
+@When("User click on earring on landing page")
+public void user_click_on_earring_on_landing_page() throws Exception {
+	WebElement earring= driver.findElement(By.xpath("//main[@id='maincontent']//li[4]/a/img"));
+	earring.click();
+	
+	Thread.sleep(2000);
+	
+
+}
+
+
+@When("User are able to see the grid view of the product")
+public void user_are_able_to_see_the_grid_view_of_the_product() throws InterruptedException {
+	WebElement grid= driver.findElement(By.xpath("  //body/div[@class='page-wrapper']/main[@id='maincontent']/div[@class='columns']/div[@class='column main']/div[@id='amasty-shopby-product-list']/div[1]/div[1]"));
+	grid.click();
+	
+	Thread.sleep(2000);
+
+}
+@Then("User are able to see the product in grid view mode")
+public void user_are_able_to_see_the_product_in_grid_view_mode() throws InterruptedException {
+	//Thread.sleep(3000);
+	JavascriptExecutor jg = (JavascriptExecutor) driver;
+	 jg.executeScript("window.scrollBy(0,450)", "");
+
+		Thread.sleep(2000);
+	homePageObject.capturePassScreenshot(scn);
+
+}
+
+
+@When("User able to click on more filter")
+public void user_able_to_click_on_more_filter() {
+
+	WebElement morefilter=driver.findElement(By.xpath("//body/div[@class='page-wrapper']/main[@id='maincontent']/div[@class='columns']/div[@class='column main']/div[@id='amasty-shopby-product-list']/div[1]/div[2]")); 
+	   JavascriptExecutor more = (JavascriptExecutor) driver;
+	   more.executeScript("arguments[0].click();", morefilter);
+	scn.log("MoreFilter button is displayed");
+	logger.info("MoreFilter button is displayed");
+
+}
+
+
+
+@When("User select the any combination of product as per there choice")
+public void user_select_the_any_combination_of_product_as_per_there_choice() throws Exception {
+	Thread.sleep(3000);
+	WebElement price=driver.findElement(By.xpath("//*[@id=\"narrow-by-list\"]/div[1]/div[1]"));
+	price.click();
+	Thread.sleep(1000);
+WebElement price1=driver.findElement(By.xpath("//li[@data-label='₹20,000.00 - ₹30,000.00']"));
+  price1.click();
+  Thread.sleep(1000);
+WebElement rating=driver.findElement(By.xpath("//*[@id=\"narrow-by-list\"]/div[3]/div[1]"));
+	 rating.click();
+	 Thread.sleep(1000);
+WebElement rating1=driver.findElement(By.xpath("//li[@data-label='5']"));
+	       rating1.click(); 
+	       Thread.sleep(1000);  
+ WebElement shopfor=driver.findElement(By.xpath("//*[@id=\"narrow-by-list\"]/div[6]/div[1]"));
+	     shopfor.click();
+	     Thread.sleep(1000);
+	WebElement shopfor1=driver.findElement(By.xpath("//li[@data-label='Men']"));
+	shopfor1.click();
+	Thread.sleep(2000);
+}
+@Then("User are able to see the combination of product")
+public void user_are_able_to_see_the_combination_of_product() throws Exception {
+	 WebElement apply=driver.findElement(By.xpath("//div[@class='am-show-button -horizontal']"));
+     apply.click();
+     Thread.sleep(3000);
+   homePageObject.capturePassScreenshot(scn);
+     Thread.sleep(3000);
+
+}
+
+
+
+@Then("User are able to ClearAll the filters")
+public void user_are_able_to_clear_all_the_filters() {
+
+	 WebElement clearAll=driver.findElement(By.xpath("//a[normalize-space()='Clear all']"));
+	 clearAll.click();
+}
+
+
+//============================@plpLoadMore==============================================================
+
+@When("User scrolldown to the bootom of the page")
+public void user_scrolldown_to_the_bootom_of_the_page() throws Exception {
+
+	
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	 js.executeScript("window.scrollBy(0,2500)", "");
+	 
+	 Thread.sleep(2000);
+	 
+	 JavascriptExecutor js2 = (JavascriptExecutor) driver;
+	 js2.executeScript("window.scrollBy(0,-500)", "");
+
+
+
+
+}
+
+@Then("User click on load more button")
+public void user_click_on_load_more_button() throws Exception {
+	 
+	Thread.sleep(3000);
+	  WebElement Loadmore1 = driver.findElement(By.xpath("(//div[@class='amscroll-load-button'])[1]"));
+	    
+		Loadmore1.click();
+		
+		JavascriptExecutor js=((JavascriptExecutor) driver); 
+		js.executeScript("window.scrollBy(0,500)","");
+		Thread.sleep(6000);
+		homePageObject.capturePassScreenshot(scn);
+}
+
+//====================================sort====================================
+
+@When("User click on rings on landing page")
+public void user_click_on_rings_on_landing_page() throws Exception {
+	WebElement rings= driver.findElement(By.xpath("//main[@id='maincontent']//li[2]/a/img"));
+	rings.click();
+	
+	Thread.sleep(2000);
+}
+
+
+
+@When("User click on sort")
+public void user_click_on_sort() throws Exception {
+	WebElement dropdownsort= driver.findElement(By.xpath("//div[@class='columns']//div[1]//div[3]//div[1]//select"));
+//dropdownsort.click();
+Select select=new Select(dropdownsort);
+select.selectByVisibleText("Price - High To Low");
+	
+	Thread.sleep(3000);
+}
+@When("User are able to sort from Relevance,Price - Low To High,Price - High To Low and What's new")
+public void user_are_able_to_sort_from_relevance_price_low_to_high_price_high_to_low_and_what_s_new() throws Exception {
+
+	
+	WebElement dropdownsort= driver.findElement(By.xpath("//div[@class='columns']//div[1]//div[3]//div[1]//select"));
+	dropdownsort.click();
+	
+	Thread.sleep(2000);
+	
+
+
+}
+@Then("User are able to see the sorted product")
+public void user_are_able_to_see_the_sorted_product() throws Exception {
+	
+	//Thread.sleep(3000);
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	 js.executeScript("window.scrollBy(0,350)", "");
+
+	
+homePageObject.capturePassScreenshot(scn);
+Thread.sleep(3000);
+}
+
+//=========================
+
+
+@When("User click on chains on landing page")
+public void user_click_on_chains_on_landing_page() throws Exception {
+
+	WebElement chains= driver.findElement(By.xpath("//main[@id='maincontent']//li[5]/a/img"));
+	chains.click();
+	
+	Thread.sleep(2000);
+
+}
+
+
+@When("User click on express delivery")
+public void user_click_on_express_delivery() throws Exception {
+	WebElement expressdelivery= driver.findElement(By.xpath("//*[@id=\"filterTags\"]/div/span"));
+	expressdelivery.click();
+	
+	Thread.sleep(5000);
+
+}
+@When("User are able to see all the ship fast product")
+public void user_are_able_to_see_all_the_ship_fast_product() {
+
+	
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	 js.executeScript("window.scrollBy(0,350)", "");
+
+   homePageObject.capturePassScreenshot(scn);
+
+}
+@Then("User again click on express delivery")
+public void user_again_click_on_express_delivery() throws Exception {
+
+
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	 js.executeScript("window.scrollBy(0,-350)", "");
+	WebElement expressdelivery= driver.findElement(By.xpath("//*[@id=\"filterTags\"]/div/span"));
+	expressdelivery.click();
+	
+	Thread.sleep(3000);
+
+
+}
+
+//=============================
+
+
+
+@When("User scroll down")
+public void user_scroll_down() {
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	 js.executeScript("window.scrollBy(0,350)", "");
+
+}
+
+
+
+@When("User select the any product")
+public void user_select_the_any_product() throws Exception {
+	List<WebElement> firstProd = driver.findElements(By.xpath("//*[@id=\"amasty-shopby-product-list\"]/div[4]/ol/li/div[2]/a"));
+	
+	firstProd.get(2).getText();
+
+	WebElement bg =driver.findElement(By.xpath("//*[@id=\"amasty-shopby-product-list\"]/div[4]/ol/li[3]/div[2]/div[2]/div[1]/div[1]/div"));
+
+	Actions act=new Actions(driver);
+	act.moveToElement(bg).build().perform();
+	bg.click();
+	Thread.sleep(3000);
+}
+@Then("User click on change background like gold and rosegold")
+public void user_click_on_change_background_like_gold_and_rosegold() throws Exception {
+	WebElement bgcolour =driver.findElement(By.xpath("//*[@id=\"amasty-shopby-product-list\"]/div[4]/ol/li[3]/div[2]/div[2]/div[1]/div[2]/a[1]"));
+	bgcolour.click();
+	Thread.sleep(3000);
+	homePageObject.capturePassScreenshot(scn);
+
+}
+
+
+
+@When("User click on video icon")
+public void user_click_on_video_icon() throws Exception {
+
+	WebElement video =driver.findElement(By.xpath("//body/div[@class='page-wrapper']/main[@id='maincontent']/div[@class='columns']/div[@class='column main']/div[@id='amasty-shopby-product-list']/div[@class='four_columns_grid_product_list products wrapper grid products-grid amscroll-page']/ol[@class='products list items product-items']/li[2]/div[2]/div[1]/div[1]/div[1]/a[1]"));
+	video.click();
+	Thread.sleep(4000);
+}
+
+
+
+
+@Then("User able to see the video of that image")
+public void user_able_to_see_the_video_of_that_image() {
+
+homePageObject.capturePassScreenshot(scn);
+}
+
+
+
+@Then("User are able to count the per page item in plp")
+public void user_are_able_to_count_the_per_page_item_in_plp() {
+    
+	List<WebElement> elements = driver.findElements(By.xpath("//*[@id=\"amasty-shopby-product-list\"]/div[4]/ol/li"));
+    int elementsCount = elements.size();
+    System.out.println("Total Number of Product on Page  : " + elementsCount);
+    logger.info("Total Number of Product on Page:" + elementsCount);
+    scn.log("Total Number of Product on Page: "+ elementsCount); 
+		
+
+
+
+}
+//==================================WISHLIST================
+
+
+@When("User click on wishlist icon on plp")
+public void user_click_on_wishlist_icon_on_plp() throws Exception {
+	List<WebElement> wishlistprod = driver.findElements(By.xpath("//a[starts-with(@id,\"wish_\")]"));
+	wishlistprod.get(0).click();
+	Thread.sleep(5000);
+}
+
+
+
+
+
+@Then("User successfully add this item into wishlist and click on wishlist icon")
+public void user_successfully_add_this_item_into_wishlist_and_click_on_wishlist_icon() throws Exception {
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	 js.executeScript("window.scrollBy(0,-250)", "");
+	
+	WebElement wishlist =driver.findElement(By.xpath("//img[@alt='wishlist']"));
+	wishlist.click();
+	Thread.sleep(4000);
+}
+
+
+
+
 
 
 

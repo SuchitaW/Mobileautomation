@@ -60,7 +60,7 @@ Feature: E-Commerce website healthcheck
     And User click on Login Using Google
     Then User enters Emailid or mobileno ,password and click on next button
 
-  #Then User successfully redirected to homepage
+
   @CheckoutSignup
   Scenario Outline: CheckoutPage- Sign Up with OTP
     When User search for the  "<product>"
@@ -172,7 +172,7 @@ Feature: E-Commerce website healthcheck
     And User select the ring size
     And User enters "<Pincode>" and click on Check button
     And User see the Expected Delivery Date
-    #And User click on Price breakup link
+    And User click on Price breakup link
     And User click on add to cart and see the cart page
     #And On cart page user is able to change the product qty and and size
     And User click on Checkout Securely

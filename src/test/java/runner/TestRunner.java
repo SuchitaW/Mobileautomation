@@ -13,9 +13,9 @@ import io.cucumber.junit.CucumberOptions;
 //				glue="",
 //				tags="",
 		
-		features={"src/test/resources/Feature/BasicChecks.feature"},           //Path of Feature folder which hold feature file
+		features={"src/test/resources/Feature/PLP.feature"},           //Path of Feature folder which hold feature file
         glue={"stepdef","StepDef" }, // Path of StepDefinition file
-        tags= "       @healthCheck", 
+        tags= "   @plpwishlisticon", 
         plugin = {"pretty",                      
             "html:target/html/htmlReport.html",
             "json:target/json/jsonReport.json",
